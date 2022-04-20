@@ -62,7 +62,7 @@ public class Game extends JPanel implements KeyListener, ActionListener {
 
     public Game() {
         try {
-            image = ImageIO.read(new FileImageInputStream(new File("xd.jpeg")));
+            image = ImageIO.read(new FileImageInputStream(new File("xd.jpg")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -75,16 +75,16 @@ public class Game extends JPanel implements KeyListener, ActionListener {
     public void paint(Graphics graphics) {
         super.paint(graphics);
         passingTime +=5;
-        graphics.setColor(Color.red);
+        graphics.setColor(Color.RED);
         graphics.fillOval(ballX,0,20,20);
 
-        graphics.drawImage(image,spaceSheepX,490,image.getWidth()/26,image.getHeight()/26,this);
+        graphics.drawImage(image,spaceSheepX,490,image.getWidth()/23,image.getHeight()/23,this);
         for (Fire fire : fires){
             if(fire.getY() < 0){
                 fires.remove(fire);
             }
         }
-        graphics.setColor(Color.BLUE);
+        graphics.setColor(Color.GREEN);
         for (Fire fire : fires){
             graphics.fillRect(fire.getX(),fire.getY(),10,20);
         }
@@ -129,7 +129,7 @@ public class Game extends JPanel implements KeyListener, ActionListener {
             }
         }
         else if (c == KeyEvent.VK_CONTROL) {
-            fires.add(new Fire(spaceSheepX+18,475));
+            fires.add(new Fire(spaceSheepX+15,470));
             usedFire++;
         }
 
